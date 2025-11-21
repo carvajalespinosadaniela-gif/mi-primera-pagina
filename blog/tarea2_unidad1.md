@@ -97,7 +97,8 @@ Debo pedirle al usuario cuántos pasos quiere a la derecha y cuántos pasos quie
 
 def reto3():
     print("=== Reto 3: girar y dibujar una L ===")
-
+    
+```python
     pasos_derecha = int(input("¿Cuántos pasos avanza la tortuga a la derecha? "))
     pasos_abajo = int(input("¿Cuántos pasos baja la tortuga después de girar? "))
 
