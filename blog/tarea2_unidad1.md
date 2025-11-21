@@ -119,7 +119,10 @@ def reto3():
     print("\nLa tortuga dibujó una L con los pasos indicados.")
 
 ### Explicación
-En este reto le pido al usuario dos números con input(): uno para saber cuántos pasos debe moverse la tortuga hacia la derecha y otro para saber cuántos pasos debe bajar Primero dibujo la parte horizontal de la “L” colocando la tortuga 🐢 seguida de tantos guiones - como dijo el usuario. Luego preparo un grupo de espacios para que la parte vertical quede alineada al final de esa línea horizontal. Con un ciclo for, imprimo el símbolo | hacia abajo tantas veces como pasos ingresó el usuario. Al final, el programa muestra un mensaje confirmando que la tortuga dibujó una “L” con los pasos indicados.
+En este reto le pido al usuario dos números con input(): uno para saber cuántos pasos debe moverse la tortuga hacia la derecha y otro para saber cuántos pasos debe bajar Primero dibujo la parte horizontal de la “L” colocando la tortuga 🐢 seguida de tantos guiones
+ - como dijo el usuario. Luego preparo un grupo de espacios para que la parte vertical quede alineada al final de esa línea horizontal.
+Con un ciclo for, imprimo el símbolo | hacia abajo tantas veces como pasos ingresó el usuario.
+ Al final, el programa muestra un mensaje confirmando que la tortuga dibujó una “L” con los pasos indicados.
 
 ### Ejemplo de salida del programa
 ```python
