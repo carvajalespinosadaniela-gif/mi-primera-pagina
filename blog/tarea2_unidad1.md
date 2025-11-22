@@ -148,5 +148,146 @@ Movimiento hacia abajo:
                |
 
 La tortuga dibujó una L con los pasos indicados.
+```
+## Reto 4 - Encapsular los movimientos en funciones
+### Explicación
+  
+En este reto debemos convertir los movimientos de la tortuga en funciones. La idea es crear adelante(n) para avanzar hacia la derecha y abajo(n) para bajar, usando solo texto. Luego debemos usarlas para dibujar una figura sencilla, como una “L”.
+
+### Ejemplo de salida del programa
+
+```python
+# Variable global para llevar el control de la posición horizontal
+posicion_x = 0
+
+def adelante(n):
+    """
+    Mueve la tortuga hacia la derecha.
+    """
+    global posicion_x
+    # Imprimir la tortuga y su rastro de flechas
+    linea = " " * posicion_x + "🐢" + "→" * (n - 1)
+    print(linea)
+    posicion_x += n  # actualizar posición
+
+def abajo(n):
+    """
+    Mueve la tortuga hacia abajo.
+    """
+    global posicion_x
+    for _ in range(n):
+        print(" " * (posicion_x - 1) + "↓")
+
+def reto4():
+    print("=== Reto 4: funciones adelante() y abajo() ===")
+    # Dibujar una L solo usando nuestras funciones
+    adelante(5)
+    abajo(3)
+
+# Ejecutar solo el reto 4
+reto4()
+```
+
+### Explicación  
+En este reto tuve que convertir el movimiento de la tortuga en funciones para que el código fuera más fácil de usar. Hice una función adelante(n) que imprime las flechas hacia la derecha y otra llamada abajo(n) que baja la tortuga usando flechas hacia abajo. Para que ambas funcionen bien, guardo la posición horizontal en una variable y así todo queda alineado. Al final solo llamo esas funciones y la tortuga termina dibujando una “L” usando puro texto.
+
+### Ejemplo de salida del programa
+
+```python
+=== Reto 4: funciones adelante() y abajo() ===
+🐢→→→→
+    ↓
+    ↓
+    ↓
+```
+    ## Reto 5
+###Enunciado
+Ajusta tus funciones para que la tortuga pueda bajar escalones.
+Cada escalón debe conservar la posición horizontal acumulada y dibujar correctamente tanto el tramo horizontal como el vertical.
+### Mi solución
+```python
+# =========================================================
+# 1. ESTADO GLOBAL (Necesario para recordar la posición)
+# =========================================================
+posicion_x = 0  # Posición horizontal (indentación)
+
+# =========================================================
+# 2. FUNCIONES DE MOVIMIENTO CON ESTADO
+# =========================================================
+
+def adelante(n):
+    """
+    Dibuja el movimiento hacia la derecha (+) y actualiza la posición horizontal.
+    """
+    global posicion_x
+    if n > 0:
+        # 1. Imprime los espacios de indentación acumulados hasta ahora
+        indentacion = " " * posicion_x
+        
+        # 2. Dibuja el tramo horizontal (usamos '+' como en tu ejemplo)
+        print(indentacion + "+" * n)
+        
+        # 3. Actualiza la posición X para el siguiente movimiento
+        posicion_x += n
+
+def abajo(n):
+    """
+    Dibuja el movimiento hacia abajo (↓) alineado con la posición horizontal actual.
+    """
+    global posicion_x
+    if n > 0:
+        # La indentación se basa en la posición horizontal acumulada
+        espacio = " " * posicion_x
+        
+        # Dibuja cada tramo vertical
+        for _ in range(n):
+            print(espacio + "↓")
+        
+        # NOTA: El movimiento vertical NO cambia la posicion_x
+
+# =========================================================
+# 3. FUNCIÓN DE COMPOSICIÓN (Dibuja la escalera)
+# =========================================================
+
+def escalera(num_escalones, pasos_h, pasos_v):
+    """
+    Dibuja una serie de escalones, reiniciando la posición_x para empezar.
+    """
+    global posicion_x
+    # Reinicia el estado para que la escalera empiece siempre desde el borde
+    posicion_x = 0 
+    
+    print(f"\n--- Dibujando Escalera de {num_escalones} escalones ---")
+    
+    for i in range(num_escalones):
+        print(f"\n# Escalón {i + 1}")
+        adelante(pasos_h)
+        abajo(pasos_v)
+
+# =========================================================
+# 4. EJECUCIÓN DEL RETO 5
+# =========================================================
+
+# Dibuja la escalera del ejemplo: 3 escalones de 5 pasos horizontales y 2 verticales.
+escalera(num_escalones=3, pasos_h=5, pasos_v=2)
+```
+### Explicación 
+En este reto la idea fue hacer que la tortuga bajara una escalera hecha completamente con texto. Para eso volví a usar las funciones adelante() y abajo(), pero ahora las combiné una detrás de la otra para formar cada escalón. La tortuga avanza hacia la derecha como si pisara un escalón y luego baja un poco para pasar al siguiente. Todo queda alineado porque voy guardando la posición donde termina cada movimiento. Al final, la tortuga va bajando peldaño por peldaño y la escalera aparece sola en la pantalla solo con impresiones de texto.
+### Ejemplo de salida del programa
+```python
+--- Dibujando Escalera de 3 escalones ---
+# Escalón 1
++++++
+     ↓
+     ↓
+# Escalón 2
+     +++++
+          ↓
+          ↓
+# Escalón 3
+          +++++
+               ↓
+               ↓
+```
 
 
