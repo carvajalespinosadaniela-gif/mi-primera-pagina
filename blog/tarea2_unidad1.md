@@ -3,6 +3,7 @@
 ### Enunciado
 Intenta recrear el movimiento de la tortuga únicamente con texto, usando funciones, print() e input() para pedir valores al usuario.
 ### Mi solución en Python
+```python
 def reto1():
     print("=== Reto 1: Simulación de tortuga ===")
 
@@ -16,14 +17,14 @@ def reto1():
     print(linea)
 
     print(f"\nLa tortuga avanzó {pasos} pasos.")
-
+```
 ### Explicación
 Este programa le pide al usuario un número usando input(), y ese número representa cuántos pasos debe avanzar la tortuga hacia la derecha.
 Cuando ingreso el número (por ejemplo, 9), el programa usa ese valor convertido a entero para dibujar una tortuga 🐢 seguida de una línea hecha con guiones.
 Como ingresé 9, se muestran 9 guiones, simulando el recorrido que avanzó la tortuga.
 ### Ejemplo de salida del programa
 
-```
+```python
 Posición inicial:
 🐢
 
